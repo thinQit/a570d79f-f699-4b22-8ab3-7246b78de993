@@ -1,2 +1,15 @@
-# a570d79f-f699-4b22-8ab3-7246b78de993
-Generated project: codex
+# Margarita Ristorante
+
+Traditional Italian restaurant website built with Next.js App Router, TypeScript, Tailwind CSS, and shadcn/ui conventions.
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- shadcn/ui config
+- Framer Motion (animations ready)
+- Zod (validation ready)
+
+## Getting Started
+
