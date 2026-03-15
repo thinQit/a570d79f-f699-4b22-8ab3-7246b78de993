@@ -1,137 +1,88 @@
 export const dynamic = 'force-dynamic';
 
-import HeroImage from "@/components/HeroImage"
-import SectionHeader from "@/components/SectionHeader"
-import FeaturedDishCard from "@/components/FeaturedDishCard"
-import GalleryMasonry from "@/components/GalleryMasonry"
-import TestimonialsGrid from "@/components/TestimonialsGrid"
-import InfoCard from "@/components/InfoCard"
-import CTASection from "@/components/CTASection"
+import AceternityHeroAurora from "@/components/AceternityHeroAurora";
+import MenuGrid from "@/components/MenuGrid";
+import ReservationCTA from "@/components/ReservationCTA";
+import ChefStory from "@/components/ChefStory";
+import PhotoGallery from "@/components/PhotoGallery";
+import TestimonialsAnimated from "@/components/TestimonialsAnimated";
+import LocationMapEmbed from "@/components/LocationMapEmbed";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function HomePage() {
   return (
     <main>
-      <HeroImage
-        imageUrl="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_675,g_auto/v1/site-images/corporate/default.jpg"
-        headline="A warm Italian table in the heart of the city"
-        subheadline="Margarita is a traditional ristorante serving hand-rolled pasta, wood-fired pizza, and slow-simmered sauces—made daily from family recipes and authentic Italian ingredients."
-        primaryCta={{ label: "View Menu", href: "/menu" }}
-        secondaryCta={{ label: "Contact & Reservations", href: "/contact" }}
-        overlayOpacity="bg-black/45"
+      <AceternityHeroAurora
+        headline="Traditional Italian dining in the heart of Brookside"
+        subheadline="Handmade pasta, wood-fired classics, and a cellar curated for long, candlelit dinners—served nightly at Margarita Ristorante."
+        primaryCta={{ label: "Reserve a Table", href: "/contact#reservation" }}
+        secondaryCta={{ label: "View Menu", href: "/menu" }}
+        badge="Since 1998 • Family-owned"
+        imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577087/site-images/restaurant/11236793.jpg"
       />
 
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <SectionHeader
-            headline="Signature dishes guests come back for"
-            subheadline="From silky ragù to blistered crusts—these are the plates that define Margarita."
-            primaryCta={{ label: "Explore Full Menu", href: "/menu" }}
-            secondaryCta={{ label: "Reserve a Table", href: "/contact#reservation-form" }}
-          />
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <FeaturedDishCard />
-            <FeaturedDishCard />
-            <FeaturedDishCard />
-            <FeaturedDishCard />
-          </div>
+      <ScrollReveal>
+        <div className="animate-fade-in-up bg-background py-20 md:py-28">
+          <MenuGrid />
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="bg-[#F3EAD0] py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <SectionHeader
-            headline="Cozy, rustic, and unmistakably Italian"
-            subheadline="Warm lighting, terracotta tones, and the aroma of wood-fired dough—Margarita is designed for long dinners and good conversation."
-            primaryCta={{ label: "See Our Story", href: "/about" }}
-            secondaryCta={{ label: "Get Directions", href: "/contact#map" }}
-          />
+      <ScrollReveal>
+        <div className="animate-fade-in-up bg-muted py-20 md:py-28">
+          <ReservationCTA />
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <GalleryMasonry
-            headline="A glimpse of the table"
-            subheadline="Food, wine, and the moments in between."
-            images={[
-              {
-                url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1000,h_750,g_auto/v1/site-images/corporate/default.jpg",
-                alt: "Wood-fired pizza coming out of oven",
-              },
-              {
-                url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1000,h_750,g_auto/v1/site-images/corporate/default.jpg",
-                alt: "Pasta being hand-rolled on a wooden board",
-              },
-              {
-                url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1000,h_750,g_auto/v1/site-images/corporate/default.jpg",
-                alt: "Italian antipasti board with cured meats and olives",
-              },
-              {
-                url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1000,h_750,g_auto/v1/site-images/corporate/default.jpg",
-                alt: "Wine glasses on a rustic table setting",
-              },
-              {
-                url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1000,h_750,g_auto/v1/site-images/corporate/default.jpg",
-                alt: "Tiramisu and espresso",
-              },
-              {
-                url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1000,h_750,g_auto/v1/site-images/corporate/default.jpg",
-                alt: "Candlelit dining room corner",
-              },
-            ]}
-          />
+      <ScrollReveal>
+        <div className="animate-fade-in-up bg-background py-20 md:py-28">
+          <ChefStory />
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="bg-[#F3EAD0] py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <TestimonialsGrid
-            headline="Loved by locals, remembered by travelers"
-            subheadline="What guests say after dinner at Margarita."
+      <ScrollReveal>
+        <div className="animate-fade-in-up bg-muted py-20 md:py-28">
+          <PhotoGallery />
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal>
+        <div className="animate-fade-in-up bg-background py-20 md:py-28">
+          <TestimonialsAnimated
+            title="Loved by locals, remembered by travelers"
+            subtitle="The kind of place you come back to—whether it’s for anniversaries, weeknight pasta, or a glass of Barbera at the bar."
+            autoplay
             testimonials={[
               {
                 quote:
-                  "The tagliatelle al ragù tastes like something my nonna would make—rich, slow-cooked, and perfectly balanced.",
+                  "The tagliatelle bolognese tastes like the one I grew up with—rich, slow, and perfectly balanced. Service is warm without being rushed.",
                 name: "Elena R.",
-                title: "Neighborhood regular",
-                rating: 5,
+                designation: "Neighborhood regular",
+                src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577321/site-images/team-people/1181622.jpg",
               },
               {
                 quote:
-                  "Best crust in town. The Margherita D.O.P. is simple and flawless, and the staff guided us to a great Chianti pairing.",
+                  "The dining room is cozy and elegant. We shared burrata, a Margherita pizza, and tiramisu—every bite was spot on.",
                 name: "Marcus T.",
-                title: "First-time guest",
-                rating: 5,
+                designation: "Date night diner",
+                src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577351/site-images/team-people/12903244.jpg",
               },
               {
                 quote:
-                  "We celebrated an anniversary here—cozy ambiance, attentive service, and the tiramisu was the perfect finish.",
+                  "Great wine list and the cacio e pepe is legit. The staff helped us pick a bottle that matched the meal perfectly.",
                 name: "Priya S.",
-                title: "Celebration dinner",
-                rating: 5,
+                designation: "Visiting from NYC",
+                src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577357/site-images/team-people/1181738.jpg",
               },
             ]}
           />
         </div>
-      </section>
+      </ScrollReveal>
 
-      <section className="py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-4">
-          <SectionHeader
-            headline="Opening hours & quick details"
-            subheadline="Plan your visit—reservations recommended on weekends."
-            primaryCta={{ label: "Contact & Reserve", href: "/contact" }}
-            secondaryCta={{ label: "View Menu", href: "/menu" }}
-          />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <InfoCard />
-            <InfoCard />
-            <InfoCard />
-          </div>
+      <ScrollReveal>
+        <div className="animate-fade-in-up bg-muted py-20 md:py-28">
+          <LocationMapEmbed />
         </div>
-      </section>
-
-      <CTASection />
+      </ScrollReveal>
     </main>
-  )
+  );
 }

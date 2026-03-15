@@ -1,16 +1,16 @@
 'use client'
 
 import Link from 'next/link'
+import { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Menu } from 'lucide-react'
-import { useState } from 'react'
 
 interface NavbarProps {
   logoText?: string
   links?: { label: string; href: string }[]
+  reserveLabel?: string
   reserveHref?: string
-  className?: string
 }
 
 export default function Navbar({
@@ -21,57 +21,52 @@ export default function Navbar({
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
   ],
-  reserveHref = '/contact#reservation-form',
-  className = '',
+  reserveLabel = 'Reserve',
+  reserveHref = '/contact#reservation',
 }: Partial<NavbarProps>) {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className={cn('sticky top-0 z-50 border-b bg-[rgba(254,250,224,0.92)] backdrop-blur', className)}>
-      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 md:px-6">
-        <Link href="/" className="font-serif text-2xl font-semibold text-[#722F37]">
+    <header className="sticky top-0 z-50 border-b border-[#DDA15E]/30 bg-[#FEFAE0]/90 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-6">
+        <Link href="/" className="font-serif text-2xl font-bold text-[#722F37]">
           {logoText}
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <Link key={link.label} href={link.href} className="text-sm font-medium text-foreground transition-colors hover:text-[#722F37]">
+            <Link key={link.href} href={link.href} className="text-sm font-medium text-[#606C38] hover:text-[#722F37]">
               {link.label}
             </Link>
           ))}
-        </div>
-
-        <div className="hidden md:block">
-          <Button asChild className="rounded-lg bg-[#722F37] text-[#FEFAE0] hover:bg-[#5f272e]">
-            <Link href={reserveHref}>Reserve</Link>
+          <Button asChild className="bg-[#722F37] text-white hover:bg-[#5e252d]">
+            <Link href={reserveHref}>{reserveLabel}</Link>
           </Button>
-        </div>
+        </nav>
 
         <button
           aria-label="Toggle menu"
-          className="inline-flex items-center justify-center rounded-md p-2 text-[#722F37] md:hidden"
-          onClick={() => setOpen(!open)}
+          onClick={() => setOpen((v) => !v)}
+          className="md:hidden text-[#722F37]"
         >
-          <Menu size={22} />
+          {open ? <X /> : <Menu />}
         </button>
-      </nav>
+      </div>
 
-      {open && (
-        <div className="border-t bg-[rgba(254,250,224,0.98)] px-4 py-4 md:hidden">
-          <div className="flex flex-col gap-4">
-            {links.map((link) => (
-              <Link key={link.label} href={link.href} className="text-sm font-medium text-foreground" onClick={() => setOpen(false)}>
-                {link.label}
-              </Link>
-            ))}
-            <Button asChild className="mt-2 w-full rounded-lg bg-[#722F37] text-[#FEFAE0] hover:bg-[#5f272e]">
-              <Link href={reserveHref} onClick={() => setOpen(false)}>
-                Reserve
-              </Link>
-            </Button>
-          </div>
-        </div>
-      )}
+      <div className={cn('border-t border-[#DDA15E]/30 bg-[#FEFAE0] md:hidden', open ? 'block' : 'hidden')}>
+        <nav className="mx-auto flex max-w-7xl flex-col gap-2 p-4">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className="rounded-md px-3 py-2 text-[#606C38] hover:bg-[#DDA15E]/15" onClick={() => setOpen(false)}>
+              {link.label}
+            </Link>
+          ))}
+          <Button asChild className="mt-2 bg-[#722F37] text-white hover:bg-[#5e252d]">
+            <Link href={reserveHref} onClick={() => setOpen(false)}>
+              {reserveLabel}
+            </Link>
+          </Button>
+        </nav>
+      </div>
     </header>
   )
 }

@@ -16,32 +16,41 @@ interface GalleryMasonryProps {
 }
 
 export default function GalleryMasonry({
-  headline = 'From Kitchen to Table',
-  subheadline = 'A visual taste of our signature dishes, intimate ambiance, and memorable moments.',
-  images = [
-    { url: 'https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_800,h_800,g_auto/v1/site-images/corporate/default.jpg', alt: 'Signature plated entrée', caption: 'Seasonal chef special' },
-    { url: 'https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_675,g_auto/v1/site-images/corporate/default.jpg', alt: 'Restaurant interior dining room', caption: 'Elegant evening atmosphere' },
-    { url: 'https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1000,h_750,g_auto/v1/site-images/corporate/default.jpg', alt: 'Artisan preparation in kitchen', caption: 'Crafted with precision' },
-  ],
+  headline = 'A Taste of the Experience',
+  subheadline = 'From plated signatures to intimate interiors.',
+  images = [],
 }: Partial<GalleryMasonryProps>) {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
   return (
     <section className="py-20 md:py-28">
-      <div className="container mx-auto max-w-7xl px-4">
+      <div className="container mx-auto max-w-7xl px-4 animate-fade-in-up">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl" style={{ fontFamily: 'Playfair Display, serif' }}>{headline}</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">{headline}</h2>
           {subheadline && <p className="mt-4 text-lg text-muted-foreground">{subheadline}</p>}
         </div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {images.map(function (img, i) {
             return (
-              <div key={i} className="group relative aspect-square cursor-pointer overflow-hidden rounded-xl" onClick={function () { setSelectedImage(img); }}>
-                <Image src={img.url} alt={img.alt} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-[#722F37]/0 transition-all group-hover:bg-[#722F37]/35" />
+              <div
+                key={i}
+                className="group card-hover relative aspect-square cursor-pointer overflow-hidden rounded-xl"
+                onClick={function () {
+                  setSelectedImage(img);
+                }}
+              >
+                <Image
+                  src={img.url}
+                  alt={img.alt}
+                  width={800}
+                  height={800}
+                  unoptimized
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-foreground/0 transition-all group-hover:bg-foreground/30" />
                 {img.caption && (
                   <div className="absolute bottom-0 left-0 right-0 translate-y-full p-4 transition-transform group-hover:translate-y-0">
-                    <p className="text-sm text-white">{img.caption}</p>
+                    <p className="text-sm text-primary-foreground">{img.caption}</p>
                   </div>
                 )}
               </div>
@@ -49,8 +58,20 @@ export default function GalleryMasonry({
           })}
         </div>
         {selectedImage && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4" onClick={function () { setSelectedImage(null); }}>
-            <Image src={selectedImage.url} alt={selectedImage.alt} width={1400} height={900} className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain" />
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/80 p-4"
+            onClick={function () {
+              setSelectedImage(null);
+            }}
+          >
+            <Image
+              src={selectedImage.url}
+              alt={selectedImage.alt}
+              width={1200}
+              height={800}
+              unoptimized
+              className="max-h-[85vh] max-w-[90vw] rounded-lg object-contain"
+            />
           </div>
         )}
       </div>

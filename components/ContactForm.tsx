@@ -19,44 +19,52 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({
-  headline = 'Contact & Reservations',
-  subheadline = 'Planning a special dinner or private event? Send us a message and our team will respond shortly.',
-  contactInfo = [
-    { icon: '📍', label: 'Address', value: '125 Amber Lane, Downtown District' },
-    { icon: '🕰️', label: 'Hours', value: 'Tue–Sun: 5:00 PM – 10:30 PM' },
-    { icon: '📞', label: 'Phone', value: '(555) 921-8844' },
-  ],
+  headline = 'Reserve Your Table',
+  subheadline = 'Share your preferred date and party details, and we’ll confirm shortly.',
+  contactInfo = [],
 }: Partial<ContactFormProps>) {
   return (
-    <section className="bg-muted/50 py-20 md:py-28">
-      <div className="container mx-auto max-w-7xl px-4">
+    <section className="py-20 md:py-28 bg-muted/50">
+      <div className="container mx-auto max-w-7xl px-4 animate-fade-in-up">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl" style={{ fontFamily: 'Playfair Display, serif' }}>{headline}</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">{headline}</h2>
           {subheadline && <p className="mt-4 text-lg text-muted-foreground">{subheadline}</p>}
         </div>
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          <Card className="border bg-background">
+          <Card className="border-border bg-background rounded-xl card-hover">
             <CardContent className="p-6">
               <form className="space-y-6">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" className="focus-visible:ring-[#DDA15E]" />
+                    <Label htmlFor="name">Full Name</Label>
+                    <Input id="name" placeholder="Your name" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" className="focus-visible:ring-[#DDA15E]" />
+                    <Input id="email" type="email" placeholder="you@email.com" />
+                  </div>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="date">Reservation Date</Label>
+                    <Input id="date" type="date" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="guests">Guests</Label>
+                    <Input id="guests" type="number" min={1} placeholder="2" />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="How can we help?" className="focus-visible:ring-[#DDA15E]" />
+                  <Label htmlFor="subject">Occasion</Label>
+                  <Input id="subject" placeholder="Anniversary, birthday, business dinner..." />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="Tell us more..." rows={5} className="focus-visible:ring-[#DDA15E]" />
+                  <Label htmlFor="message">Special Requests</Label>
+                  <Textarea id="message" placeholder="Dietary preferences, seating requests, notes..." rows={5} />
                 </div>
-                <Button type="submit" className="w-full bg-[#722F37] text-[#FEFAE0] hover:bg-[#722F37]/90">Send Message</Button>
+                <Button type="submit" className="w-full transition-all duration-200 hover:scale-105">
+                  Request Reservation
+                </Button>
               </form>
             </CardContent>
           </Card>

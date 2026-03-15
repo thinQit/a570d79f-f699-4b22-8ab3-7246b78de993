@@ -2,37 +2,37 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
 interface CTASectionProps {
   headline?: string
   subheadline?: string
+  details?: string
   primaryLabel?: string
   primaryHref?: string
   secondaryLabel?: string
   secondaryHref?: string
-  className?: string
 }
 
 export default function CTASection({
-  headline = 'Bring Italy to Your Next Evening',
-  subheadline = 'Reserve your table today and enjoy handcrafted dishes, welcoming service, and a cozy atmosphere.',
-  primaryLabel = 'Book a Table',
-  primaryHref = '#reservation',
-  secondaryLabel = 'Explore Menu',
-  secondaryHref = '#menu',
-  className = '',
+  headline = 'Planning a Celebration?',
+  subheadline = 'Host birthdays, anniversaries, and private dinners at Margarita.',
+  details = 'Custom family-style menus available for groups of 10+.',
+  primaryLabel = 'Book an Event',
+  primaryHref = '/contact#reservation',
+  secondaryLabel = 'View Menu',
+  secondaryHref = '/menu',
 }: Partial<CTASectionProps>) {
   return (
-    <section className={cn('rounded-2xl bg-[#722F37] px-6 py-12 text-[#FEFAE0] md:px-10 md:py-14', className)}>
-      <div className="mx-auto max-w-4xl text-center">
-        <h3 className="font-serif text-3xl font-semibold md:text-4xl">{headline}</h3>
-        <p className="mx-auto mt-3 max-w-2xl text-sm text-[#f4e6c1] md:text-base">{subheadline}</p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <Button className="rounded-lg bg-[#DDA15E] text-[#2f1d1f] hover:bg-[#c88a46]">
+    <section className="bg-[#606C38] py-20 text-[#FEFAE0]">
+      <div className="mx-auto max-w-4xl px-4 text-center md:px-6">
+        <h3 className="font-serif text-4xl">{headline}</h3>
+        <p className="mt-4">{subheadline}</p>
+        <p className="mt-2 text-[#FEFAE0]/85">{details}</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Button asChild className="bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
             <Link href={primaryHref}>{primaryLabel}</Link>
           </Button>
-          <Button variant="outline" className="rounded-lg border-[#FEFAE0] text-[#FEFAE0] hover:bg-[#FEFAE0] hover:text-[#722F37]">
+          <Button asChild variant="outline" className="border-[#FEFAE0] text-[#FEFAE0] hover:bg-[#FEFAE0]/10">
             <Link href={secondaryHref}>{secondaryLabel}</Link>
           </Button>
         </div>
