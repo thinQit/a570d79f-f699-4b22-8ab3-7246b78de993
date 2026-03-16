@@ -4,6 +4,7 @@ import AceternityHeroAurora from "@/components/AceternityHeroAurora";
 import ContactReservationForm from "@/components/ContactReservationForm";
 import LocationMapCard from "@/components/LocationMapCard";
 import CTAVortex from "@/components/CTAVortex";
+import { RESTAURANT_ADDRESS } from "@/lib/types";
 
 export default function ContactPage() {
   return (
@@ -28,11 +29,11 @@ export default function ContactPage() {
       <div id="map" className="animate-fade-in-up bg-muted">
         <LocationMapCard
           headline="Visit us"
-          subheadline="214 Via Roma, San Aurelio District"
-          address="214 Via Roma, San Aurelio District"
+          subheadline={RESTAURANT_ADDRESS}
+          address={RESTAURANT_ADDRESS}
           phone="(212) 555-0198"
           email="ciao@osteriaborgo.com"
-          mapQuery="214 Via Roma, San Aurelio District"
+          mapQuery={RESTAURANT_ADDRESS}
         />
       </div>
       <div className="animate-fade-in-up">

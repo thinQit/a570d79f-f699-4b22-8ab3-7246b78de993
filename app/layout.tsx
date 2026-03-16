@@ -3,6 +3,7 @@ import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { RESTAURANT_ADDRESS } from "@/lib/types";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -60,7 +61,7 @@ export default function RootLayout({
         {children}
         <Footer
           restaurantName="Osteria Borgo"
-          address="214 Via Roma, San Aurelio District"
+          address={RESTAURANT_ADDRESS}
           hours={footerHours}
           quickLinks={footerLinks}
         />

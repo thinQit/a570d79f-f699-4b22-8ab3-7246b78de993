@@ -8,6 +8,7 @@ import ChefStorySplit from "@/components/ChefStorySplit";
 import PhotoGalleryMasonry from "@/components/PhotoGalleryMasonry";
 import TestimonialsAnimated from "@/components/TestimonialsAnimated";
 import LocationMapCard from "@/components/LocationMapCard";
+import { RESTAURANT_ADDRESS } from "@/lib/types";
 
 export default function HomePage() {
   return (
@@ -77,10 +78,10 @@ export default function HomePage() {
         <LocationMapCard
           headline="Find us in San Aurelio."
           subheadline="Easy walk from the Central Station—perfect for weeknights and weekend dinners."
-          address="214 Via Roma, San Aurelio District"
+          address={RESTAURANT_ADDRESS}
           phone="(212) 555-0198"
           email="ciao@osteriaborgo.com"
-          mapQuery="214 Via Roma, San Aurelio District"
+          mapQuery={RESTAURANT_ADDRESS}
         />
       </div>
     </main>
