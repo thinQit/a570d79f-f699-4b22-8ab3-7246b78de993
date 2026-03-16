@@ -13,7 +13,7 @@ interface FooterProps {
 
 export default function Footer({
   restaurantName = 'Trattoria Aurora',
-  address = '245 Via Roma, Downtown District, NY 10012',
+  address = '214 Via Roma, San Aurelio District',
   hours = ['Mon–Thu: 5:00 PM – 10:00 PM', 'Fri–Sat: 4:30 PM – 11:00 PM', 'Sun: 4:30 PM – 9:30 PM'],
   quickLinks = [
     { label: 'Home', href: '#home' },
