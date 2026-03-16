@@ -11,7 +11,7 @@ interface LocationMapEmbedProps {
 }
 
 export default function LocationMapEmbed({
-  address = '128 Via Roma, Little Italy, NY 10013',
+  address = 'Palam, New Delhi, India',
   hours = 'Mon–Thu 4:00 PM–10:00 PM · Fri–Sun 12:00 PM–11:00 PM',
   parkingNote = 'Street parking nearby and valet available Friday to Sunday.',
   mapSrc = 'https://www.google.com/maps?q=Palam%2C%20New%20Delhi%2C%20India&output=embed',
@@ -26,7 +26,7 @@ export default function LocationMapEmbed({
           <p className="mt-3 flex items-start gap-2 text-[#606C38]"><Clock className="mt-1 h-4 w-4" />{hours}</p>
           <p className="mt-3 flex items-start gap-2 text-[#606C38]"><Car className="mt-1 h-4 w-4" />{parkingNote}</p>
           <Button asChild className="mt-6 bg-[#722F37] text-white hover:bg-[#5e252d]">
-            <a href="https://maps.google.com" target="_blank" rel="noreferrer">Get Directions</a>
+            <a href="https://maps.google.com/?q=Palam%2C%20New%20Delhi%2C%20India" target="_blank" rel="noreferrer">Get Directions</a>
           </Button>
         </div>
       </div>
