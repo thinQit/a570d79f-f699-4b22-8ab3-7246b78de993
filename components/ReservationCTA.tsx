@@ -1,37 +1,37 @@
 "use client";
 
-import Link from 'next/link'
-import { PhoneCall } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { ShieldCheck, Clock10 } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import PrimaryButton from '@/components/PrimaryButton'
 
 interface ReservationCTAProps {
-  headline?: string
-  hoursSummary?: string
-  phone?: string
+  title?: string
+  details?: string
+  policy?: string
+  buttonHref?: string
+  className?: string
 }
 
 export default function ReservationCTA({
-  headline = 'Reserve Your Table for Tonight',
-  hoursSummary = 'Open daily · Lunch & Dinner · Private dining available on request',
-  phone = '(212) 555-0147',
+  title = 'Reserve Your Table Tonight',
+  details = 'Secure your preferred time for dinner service and special occasions.',
+  policy = 'Reservations held for 15 minutes. Cancellations accepted up to 4 hours prior.',
+  buttonHref = '#reserve',
+  className = '',
 }: Partial<ReservationCTAProps>) {
-  const ctaButtonClass = "bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054] focus-visible:ring-2 focus-visible:ring-[#FEFAE0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#722F37]"
-  const reserveButtonClass = `${ctaButtonClass} rounded-full`
-
   return (
-    <section className="bg-[#722F37] py-16 text-[#FEFAE0]">
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 md:flex-row md:items-center md:px-6">
-        <div>
-          <h3 className="font-serif text-3xl">{headline}</h3>
-          <p className="mt-2 text-[#FEFAE0]/85">{hoursSummary}</p>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          <Button asChild className={reserveButtonClass}>
-            <Link href="/contact#reservation">Reserve Now</Link>
-          </Button>
-          <Button asChild className={ctaButtonClass}>
-            <a href={'tel:' + phone.replace(/\D/g, '')}><PhoneCall className="mr-2 h-4 w-4" />Call {phone}</a>
-          </Button>
+    <section className={cn('bg-[#722F37] py-20 md:py-24', className)}>
+      <div className="mx-auto max-w-7xl px-4 md:px-6">
+        <div className="rounded-2xl border border-[#DDA15E]/50 bg-[#722F37] p-8 text-[#FEFAE0] md:p-10">
+          <h2 className="font-serif text-3xl md:text-4xl">{title}</h2>
+          <p className="mt-4 max-w-2xl text-[#FEFAE0]/90">{details}</p>
+          <div className="mt-6 flex flex-col gap-2 text-sm text-[#FEFAE0]/85">
+            <p className="flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> {policy}</p>
+            <p className="flex items-center gap-2"><Clock10 className="h-4 w-4" /> Last seating at 9:45 PM on weekdays.</p>
+          </div>
+          <div className="mt-8">
+            <PrimaryButton label="Reserve" href={buttonHref} />
+          </div>
         </div>
       </div>
     </section>

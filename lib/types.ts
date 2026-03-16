@@ -3,7 +3,7 @@ export interface NavItem {
   href: string;
 }
 
-export interface CtaLink {
+export interface CTA {
   label: string;
   href: string;
 }
@@ -12,36 +12,28 @@ export interface MenuItem {
   name: string;
   description: string;
   price: number;
-  image: string;
-  dietary?: string[];
 }
 
 export interface MenuCategory {
-  id: string;
   name: string;
   items: MenuItem[];
+}
+
+export interface Testimonial {
+  name: string;
+  source: string;
+  rating: number;
+  quote: string;
 }
 
 export interface TeamMember {
   name: string;
   role: string;
   bio: string;
-  image: string;
+  image?: string;
 }
 
-export interface Testimonial {
-  name: string;
-  title: string;
-  quote: string;
-  rating: number;
-}
-
-export interface HourRow {
-  day: string;
-  hours: string;
-}
-
-export interface ReservationFormValues {
+export interface ReservationPayload {
   fullName: string;
   email: string;
   phone: string;
@@ -49,5 +41,10 @@ export interface ReservationFormValues {
   time: string;
   partySize: string;
   occasion?: string;
-  notes?: string;
+  message?: string;
+}
+
+export interface ApiResponse {
+  ok: boolean;
+  message: string;
 }

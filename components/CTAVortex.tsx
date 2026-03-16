@@ -12,19 +12,19 @@ interface CTAVortexProps {
 }
 
 export default function CTAVortex({
-  headline = 'Reserve Your Evening',
-  description = 'Secure your table now and enjoy a warm, elevated dining experience.',
-  ctaLabel = 'Book Now',
-  ctaHref = '#reservation',
-  secondaryCtaLabel = 'Call Us',
-  secondaryCtaHref = '#contact',
+  headline = "Ready for an unforgettable evening?",
+  description = "Reserve your table now and enjoy a refined dining experience with seasonal flavors and warm hospitality.",
+  ctaLabel = "Book Reservation",
+  ctaHref = "#reservation",
+  secondaryCtaLabel = "Call Us",
+  secondaryCtaHref = "tel:+15552481930",
 }: Partial<CTAVortexProps>) {
   return (
     <section className="w-full mx-auto rounded-md h-[30rem] overflow-hidden">
       <Vortex
         backgroundColor="black"
-        baseHue={24}
-        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full animate-fade-in-up"
+        baseHue={26}
+        className="animate-fade-in-up flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
       >
         <h2 className="text-primary-foreground text-2xl md:text-6xl font-bold text-center">
           {headline}

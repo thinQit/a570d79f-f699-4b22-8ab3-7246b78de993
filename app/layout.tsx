@@ -17,59 +17,52 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Margarita Ristorante | Traditional Italian Restaurant in Brookside",
+  title: "Osteria Borgo | Modern Italian Osteria in San Aurelio",
   description:
-    "Margarita Ristorante is a family-owned Italian restaurant in Brookside, San Mateo. Handmade pasta, wood-fired pizza, Italian wines, and warm hospitality. Reserve a table online.",
+    "Osteria Borgo serves handmade pasta, wood-fired mains, and seasonal Italian classics in a warm, modern dining room. Reserve a table online or call for same-day availability.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Menu", href: "/menu" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+    { label: "Reserve", href: "/contact#reservation" },
+  ];
+
+  const footerLinks = [
+    { label: "Home", href: "/" },
+    { label: "Menu", href: "/menu" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
+
+  const footerHours = [
+    "Mon–Thu: 5:00 PM – 10:00 PM",
+    "Fri: 5:00 PM – 11:00 PM",
+    "Sat: 4:30 PM – 11:00 PM",
+    "Sun: 4:30 PM – 9:30 PM",
+  ];
+
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${lato.variable} font-sans bg-background text-foreground`}>
         <Navbar
-          logo="Margarita Ristorante"
-          navItems={[
-            { label: "Home", href: "/" },
-            { label: "Menu", href: "/menu" },
-            { label: "About", href: "/about" },
-            { label: "Contact", href: "/contact" },
-          ]}
-          ctaLabel="Reserve"
-          ctaHref="/contact#reservation"
+          logoText="Osteria Borgo"
+          links={navLinks}
+          reserveHref="/contact#reservation"
         />
         {children}
         <Footer
-          brand="Margarita Ristorante"
-          description="Traditional Italian dining • Brookside, San Mateo"
-          columns={[
-            {
-              title: "Navigate",
-              links: [
-                { label: "Home", href: "/" },
-                { label: "Menu", href: "/menu" },
-                { label: "About", href: "/about" },
-                { label: "Contact", href: "/contact" },
-              ],
-            },
-            {
-              title: "Visit",
-              links: [
-                { label: "2147 Brookside Ave, San Mateo, CA 94401", href: "https://maps.google.com/?q=2147%20Brookside%20Ave%2C%20San%20Mateo%2C%20CA%2094401" },
-                { label: "(650) 555-0198", href: "tel:+16505550198" },
-                { label: "ciao@margaritaristorante.com", href: "mailto:ciao@margaritaristorante.com" },
-              ],
-            },
-            {
-              title: "Social",
-              links: [
-                { label: "Instagram", href: "https://instagram.com/" },
-                { label: "Facebook", href: "https://facebook.com/" },
-              ],
-            },
-          ]}
-          copyright="© 2026 Margarita Ristorante. All rights reserved."
+          restaurantName="Osteria Borgo"
+          address="214 Via Roma, San Aurelio District"
+          hours={footerHours}
+          quickLinks={footerLinks}
         />
       </body>
     </html>

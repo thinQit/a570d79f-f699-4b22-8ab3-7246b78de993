@@ -1,52 +1,48 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { AuroraBackground } from '@/components/ui/backgrounds/aurora-background'
 import { TextGenerateEffect } from '@/components/ui/text/text-generate-effect'
-import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import PrimaryButton from '@/components/PrimaryButton'
 
 interface AceternityHeroAuroraProps {
-  headline?: string
-  subheadline?: string
+  title?: string
+  subtitle?: string
   imageSrc?: string
+  reserveHref?: string
+  menuHref?: string
+  className?: string
 }
 
 export default function AceternityHeroAurora({
-  headline = 'Classic Italian Flavors, Served with Heart',
-  subheadline = 'At Margarita, every plate is rooted in tradition—fresh pasta, slow-simmered sauces, and warm hospitality in an elegant rustic setting.',
-  imageSrc = 'https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577087/site-images/restaurant/11236793.jpg',
+  title = 'Italian Traditions, Elevated for Today',
+  subtitle = 'Handmade pasta, wood-fired classics, and cellar-selected wines in a warm, sophisticated setting.',
+  imageSrc = 'https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577101/site-images/restaurant/11123392.jpg',
+  reserveHref = '#reserve',
+  menuHref = '#menu',
+  className = '',
 }: Partial<AceternityHeroAuroraProps>) {
   return (
-    <AuroraBackground className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#722F37]/35" />
-      <section className="relative mx-auto grid min-h-[82vh] max-w-7xl items-center gap-10 px-4 py-20 md:grid-cols-2 md:px-6">
-        <div className="text-[#FEFAE0]">
-          <p className="mb-4 text-sm uppercase tracking-[0.2em] text-[#DDA15E]">Traditional Italian Restaurant</p>
-          <h1 className="font-serif text-4xl font-bold leading-tight md:text-6xl">{headline}</h1>
-          <div className="mt-5 max-w-xl">
-            <TextGenerateEffect words={subheadline} />
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="rounded-full bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
-              <Link href="/contact#reservation">Reserve a Table</Link>
-            </Button>
-            <Button asChild className="rounded-full bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
-              <Link href="/menu">Explore Menu</Link>
-            </Button>
+    <section id="home" className={cn('relative overflow-hidden', className)}>
+      <AuroraBackground className="min-h-[88vh]">
+        <div className="absolute inset-0">
+          <Image src={imageSrc} alt="Italian fine dining spread" fill className="object-cover opacity-30" unoptimized />
+        </div>
+        <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start px-4 py-24 md:px-6 md:py-32">
+          <p className="mb-4 rounded-full border border-[#DDA15E]/50 bg-[#722F37]/40 px-4 py-1 text-xs uppercase tracking-widest text-[#FEFAE0]">
+            Trattoria Aurora
+          </p>
+          <h1 className="max-w-3xl font-serif text-4xl leading-tight text-white md:text-6xl">
+            <TextGenerateEffect words={title} />
+          </h1>
+          <p className="mt-6 max-w-2xl text-base text-white/90 md:text-lg">{subtitle}</p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <PrimaryButton label="Reserve" href={reserveHref} />
+            <PrimaryButton label="Explore Menu" href={menuHref} />
           </div>
         </div>
-        <div className="rounded-xl border border-[#DDA15E]/40 bg-[#FEFAE0]/10 p-3 backdrop-blur">
-          <Image
-            src={imageSrc}
-            alt="Signature Italian dining"
-            width={1200}
-            height={800}
-            unoptimized
-            className="h-[420px] w-full rounded-lg object-cover"
-          />
-        </div>
-      </section>
-    </AuroraBackground>
+      </AuroraBackground>
+    </section>
   )
 }

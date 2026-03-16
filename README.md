@@ -1,14 +1,17 @@
-# Margarita Ristorante
+# Osteria Borgo
 
-Traditional-style Italian restaurant website built with Next.js 14, TypeScript, Tailwind CSS, and shadcn/ui.
+Next.js 14 + TypeScript + Tailwind + shadcn/ui scaffold for the Osteria Borgo website.
 
-## Tech Stack
+## Stack
 
 - Next.js 14 (App Router)
 - TypeScript
 - Tailwind CSS
-- shadcn/ui
+- shadcn/ui configuration
 - Framer Motion
+- Zod for request validation
 
 ## Getting Started
+
+1. Install dependencies:
 

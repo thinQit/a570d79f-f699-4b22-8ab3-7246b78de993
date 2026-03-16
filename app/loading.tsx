@@ -1,7 +1,7 @@
 export default function Loading() {
   return (
-    <main className="min-h-screen bg-background text-foreground flex items-center justify-center">
-      <div className="animate-pulse text-lg md:text-xl">Preparing your table at Margarita Ristorante…</div>
-    </main>
+    <div className="min-h-[60vh] flex items-center justify-center bg-background text-foreground">
+      <p className="text-lg animate-pulse">Preparing your table...</p>
+    </div>
   );
 }

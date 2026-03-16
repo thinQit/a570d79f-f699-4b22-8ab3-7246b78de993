@@ -1,54 +1,45 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 interface MenuCategoryTabsProps {
-  categories?: { id: string; label: string }[]
+  categories?: string[]
+  activeCategory?: string
+  onCategoryChange?: (category: string) => void
+  className?: string
 }
 
 export default function MenuCategoryTabs({
-  categories = [
-    { id: 'antipasti', label: 'Antipasti' },
-    { id: 'pasta', label: 'Pasta' },
-    { id: 'pizza', label: 'Pizza' },
-    { id: 'secondi', label: 'Secondi' },
-    { id: 'dolci', label: 'Dolci' },
-  ],
+  categories = ['Antipasti', 'Pasta', 'Secondi', 'Dolci'],
+  activeCategory = 'Antipasti',
+  onCategoryChange,
+  className = '',
 }: Partial<MenuCategoryTabsProps>) {
-  const [active, setActive] = useState(categories[0]?.id || 'antipasti')
+  const [active, setActive] = React.useState(activeCategory)
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.hash) {
-      setActive(window.location.hash.replace('#', ''))
-    }
-  }, [])
-
-  const goTo = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      history.replaceState(null, '', '#' + id)
-      setActive(id)
-    }
+  const handleTab = (category: string) => {
+    setActive(category)
+    onCategoryChange?.(category)
   }
 
   return (
-    <div className="sticky top-16 z-30 border-y border-[#DDA15E]/25 bg-[#FEFAE0]/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3 md:px-6">
-        {categories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => goTo(cat.id)}
+    <div className={cn('flex flex-wrap gap-6 border-b border-[#DDA15E]/40', className)}>
+      {categories.map((category) => (
+        <button
+          key={category}
+          onClick={() => handleTab(category)}
+          className="relative pb-3 text-sm font-semibold uppercase tracking-wide text-[#606C38]"
+        >
+          <span className={cn(active === category && 'text-[#722F37]')}>{category}</span>
+          <span
             className={cn(
-              'rounded-full px-4 py-2 text-sm transition',
-              active === cat.id ? 'bg-[#722F37] text-white' : 'bg-[#DDA15E]/15 text-[#606C38] hover:bg-[#DDA15E]/25'
+              'absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-[#0ea5e9] transition-transform duration-300',
+              active === category && 'scale-x-100'
             )}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
+          />
+        </button>
+      ))}
     </div>
   )
 }

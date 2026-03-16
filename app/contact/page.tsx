@@ -1,47 +1,50 @@
 export const dynamic = 'force-dynamic';
 
 import AceternityHeroAurora from "@/components/AceternityHeroAurora";
-import ContactForm from "@/components/ContactForm";
-import HoursList from "@/components/HoursList";
-import LocationMapEmbed from "@/components/LocationMapEmbed";
-import ScrollReveal from "@/components/ScrollReveal";
+import ContactReservationForm from "@/components/ContactReservationForm";
+import LocationMapCard from "@/components/LocationMapCard";
+import CTAVortex from "@/components/CTAVortex";
 
 export default function ContactPage() {
   return (
     <main>
-      <AceternityHeroAurora
-        headline="Reservations & contact"
-        subheadline="Book a table, ask about events, or send a note. We’ll get back to you as soon as possible during service hours."
-        primaryCta={{ label: "Call (650) 555-0198", href: "tel:+16505550198" }}
-        secondaryCta={{ label: "View Menu", href: "/menu" }}
-        imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577099/site-images/restaurant/10445929.jpg"
-      />
-
-      <ScrollReveal>
-        <section id="reservation" className="animate-fade-in-up bg-background py-20 md:py-28">
-          <ContactForm
-            headline="Request a reservation"
-            subheadline="This form is UI-only for now—submission will be connected to email later. For same-day requests, please call."
-            contactInfo={[
-              { icon: "Phone", label: "Phone", value: "(650) 555-0198" },
-              { icon: "Mail", label: "Email", value: "ciao@margaritaristorante.com" },
-              { icon: "MapPin", label: "Address", value: "2147 Brookside Ave, San Mateo, CA 94401" },
-            ]}
-          />
-        </section>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <section id="hours" className="animate-fade-in-up bg-muted py-20 md:py-28">
-          <HoursList />
-        </section>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <section id="map" className="animate-fade-in-up bg-background py-20 md:py-28">
-          <LocationMapEmbed />
-        </section>
-      </ScrollReveal>
+      <div className="animate-fade-in-up">
+        <AceternityHeroAurora
+          headline="Reservations & inquiries"
+          subheadline="Tell us your preferred date and time, and we’ll confirm as soon as possible. For same-day availability, please call."
+          primaryCta={{ label: "Call (212) 555-0198", href: "tel:+12125550198" }}
+          secondaryCta={{ label: "View Menu", href: "/menu" }}
+          imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577064/site-images/restaurant/11236818.jpg"
+          className="min-h-[80vh]"
+        />
+      </div>
+      <div id="reservation" className="animate-fade-in-up bg-background">
+        <ContactReservationForm
+          headline="Reserve a table"
+          subheadline="We respond within 24 hours. For parties of 9+, please call."
+          submitEndpoint="/api/reservations"
+        />
+      </div>
+      <div id="map" className="animate-fade-in-up bg-muted">
+        <LocationMapCard
+          headline="Visit us"
+          subheadline="214 Via Roma, San Aurelio District"
+          address="214 Via Roma, San Aurelio District"
+          phone="(212) 555-0198"
+          email="ciao@osteriaborgo.com"
+          mapQuery="214 Via Roma, San Aurelio District"
+        />
+      </div>
+      <div className="animate-fade-in-up">
+        <CTAVortex
+          title="Planning something special?"
+          subtitle="For birthdays, anniversaries, and private dining inquiries, send us a note and we’ll follow up with options."
+          ctaLabel="Send an Inquiry"
+          ctaHref="/contact#reservation"
+          secondaryCtaLabel="Email ciao@osteriaborgo.com"
+          secondaryCtaHref="mailto:ciao@osteriaborgo.com"
+        />
+      </div>
     </main>
   );
 }

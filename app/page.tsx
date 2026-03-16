@@ -1,88 +1,88 @@
 export const dynamic = 'force-dynamic';
 
 import AceternityHeroAurora from "@/components/AceternityHeroAurora";
-import MenuGrid from "@/components/MenuGrid";
+import MenuCategoryTabs from "@/components/MenuCategoryTabs";
+import MenuItemCard from "@/components/MenuItemCard";
 import ReservationCTA from "@/components/ReservationCTA";
-import ChefStory from "@/components/ChefStory";
-import PhotoGallery from "@/components/PhotoGallery";
+import ChefStorySplit from "@/components/ChefStorySplit";
+import PhotoGalleryMasonry from "@/components/PhotoGalleryMasonry";
 import TestimonialsAnimated from "@/components/TestimonialsAnimated";
-import LocationMapEmbed from "@/components/LocationMapEmbed";
-import ScrollReveal from "@/components/ScrollReveal";
+import LocationMapCard from "@/components/LocationMapCard";
 
 export default function HomePage() {
   return (
     <main>
-      <AceternityHeroAurora
-        headline="Traditional Italian dining in the heart of Brookside"
-        subheadline="Handmade pasta, wood-fired classics, and a cellar curated for long, candlelit dinners—served nightly at Margarita Ristorante."
-        primaryCta={{ label: "Reserve a Table", href: "/contact#reservation" }}
-        secondaryCta={{ label: "View Menu", href: "/menu" }}
-        badge="Since 1998 • Family-owned"
-        imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577087/site-images/restaurant/11236793.jpg"
-      />
-
-      <ScrollReveal>
-        <div className="animate-fade-in-up bg-background py-20 md:py-28">
-          <MenuGrid />
+      <div className="animate-fade-in-up">
+        <AceternityHeroAurora
+          headline="A modern Italian osteria with old-world soul."
+          subheadline="Seasonal antipasti, handmade pasta, and wood-fired mains—served in a warm, candlelit dining room in the heart of the city."
+          primaryCta={{ label: "Reserve a Table", href: "/contact#reservation" }}
+          secondaryCta={{ label: "Explore the Menu", href: "/menu" }}
+          imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577101/site-images/restaurant/11123392.jpg"
+          className="min-h-[80vh]"
+        />
+      </div>
+      <section className="py-20 md:py-28 bg-background animate-fade-in-up">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <MenuCategoryTabs />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10">
+            <MenuItemCard name="Tagliatelle al Ragù" description="Slow-braised beef ragù, Parmigiano-Reggiano." price={28} imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577061/site-images/restaurant/10375821.jpg" />
+            <MenuItemCard name="Cacio e Pepe" description="Pecorino Romano, cracked black pepper, silky emulsion." price={24} imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577099/site-images/restaurant/10445929.jpg" />
+            <MenuItemCard name="Wood-Fired Branzino" description="Lemon, capers, herbs; served with blistered broccolini." price={36} imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577051/site-images/restaurant/12802124.jpg" />
+          </div>
         </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div className="animate-fade-in-up bg-muted py-20 md:py-28">
-          <ReservationCTA />
-        </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div className="animate-fade-in-up bg-background py-20 md:py-28">
-          <ChefStory />
-        </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div className="animate-fade-in-up bg-muted py-20 md:py-28">
-          <PhotoGallery />
-        </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div className="animate-fade-in-up bg-background py-20 md:py-28">
-          <TestimonialsAnimated
-            title="Loved by locals, remembered by travelers"
-            subtitle="The kind of place you come back to—whether it’s for anniversaries, weeknight pasta, or a glass of Barbera at the bar."
-            autoplay
-            testimonials={[
-              {
-                quote:
-                  "The tagliatelle bolognese tastes like the one I grew up with—rich, slow, and perfectly balanced. Service is warm without being rushed.",
-                name: "Elena R.",
-                designation: "Neighborhood regular",
-                src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577321/site-images/team-people/1181622.jpg",
-              },
-              {
-                quote:
-                  "The dining room is cozy and elegant. We shared burrata, a Margherita pizza, and tiramisu—every bite was spot on.",
-                name: "Marcus T.",
-                designation: "Date night diner",
-                src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577351/site-images/team-people/12903244.jpg",
-              },
-              {
-                quote:
-                  "Great wine list and the cacio e pepe is legit. The staff helped us pick a bottle that matched the meal perfectly.",
-                name: "Priya S.",
-                designation: "Visiting from NYC",
-                src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577357/site-images/team-people/1181738.jpg",
-              },
-            ]}
-          />
-        </div>
-      </ScrollReveal>
-
-      <ScrollReveal>
-        <div className="animate-fade-in-up bg-muted py-20 md:py-28">
-          <LocationMapEmbed />
-        </div>
-      </ScrollReveal>
+      </section>
+      <div className="animate-fade-in-up">
+        <ReservationCTA
+          headline="Reserve your table in under a minute."
+          subheadline="Celebration, date night, or a simple Tuesday—tell us what you’re planning and we’ll take care of the rest."
+          primaryCta={{ label: "Reserve a Table", href: "/contact#reservation" }}
+          secondaryCta={{ label: "Call (212) 555-0198", href: "tel:+12125550198" }}
+        />
+      </div>
+      <div className="animate-fade-in-up bg-muted">
+        <ChefStorySplit
+          headline="From Emilia-Romagna to your table."
+          subheadline="Chef Lucia Bianchi brings a modern touch to regional Italian cooking—rooted in tradition, guided by seasonality."
+          imageSrc="https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577071/site-images/restaurant/10918163.jpg"
+        />
+      </div>
+      <div className="animate-fade-in-up">
+        <PhotoGalleryMasonry
+          headline="A dining room made for lingering."
+          subheadline="Warm light, soft textures, and the sound of the kitchen—captured in moments."
+          images={[
+            { url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577084/site-images/restaurant/10918168.jpg", alt: "Handmade tagliatelle being twirled in a copper pan", caption: "Kitchen" },
+            { url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577096/site-images/restaurant/12324704.jpg", alt: "Candlelit dining room with cream walls and burgundy accents", caption: "Dining Room" },
+            { url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577067/site-images/restaurant/11689798.jpg", alt: "Wood-fired branzino plated with lemon and herbs", caption: "Secondi" },
+            { url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577080/site-images/restaurant/12331540.jpg", alt: "Tiramisu dusted with cocoa served with espresso", caption: "Dolci" },
+            { url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577086/site-images/restaurant/10148453.jpg", alt: "Bar seating with olive-green leather stools and warm gold lighting", caption: "Bar" },
+            { url: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577070/site-images/restaurant/10636732.jpg", alt: "Antipasti spread with burrata, prosciutto, and roasted peppers", caption: "Antipasti" },
+          ]}
+        />
+      </div>
+      <div className="animate-fade-in-up bg-muted">
+        <TestimonialsAnimated
+          title="Loved by locals. Remembered by visitors."
+          subtitle="A few notes from guests who came hungry and left happy."
+          testimonials={[
+            { quote: "The cacio e pepe is the best I’ve had outside of Rome—perfectly glossy, peppery, and balanced.", name: "Marina K.", designation: "Google", src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577370/site-images/team-people/10375912.jpg" },
+            { quote: "We booked for an anniversary and they nailed every detail. The branzino was immaculate and the tiramisu disappeared in minutes.", name: "David R.", designation: "Yelp", src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577325/site-images/team-people/10347164.jpg" },
+            { quote: "Beautiful room, thoughtful wine list, and pasta that tastes like it was made by someone’s nonna.", name: "Ayesha S.", designation: "OpenTable", src: "https://res.cloudinary.com/dwc294mzm/image/upload/c_fill,w_1200,h_800,g_auto/v1771577363/site-images/team-people/12903169.jpg" },
+          ]}
+          autoplay
+        />
+      </div>
+      <div className="animate-fade-in-up">
+        <LocationMapCard
+          headline="Find us in San Aurelio."
+          subheadline="Easy walk from the Central Station—perfect for weeknights and weekend dinners."
+          address="214 Via Roma, San Aurelio District"
+          phone="(212) 555-0198"
+          email="ciao@osteriaborgo.com"
+          mapQuery="214 Via Roma, San Aurelio District"
+        />
+      </div>
     </main>
   );
 }
