@@ -73,14 +73,14 @@
 
 @layer components {
   .explore-menu-button {
-    @apply bg-emerald-900 text-amber-50 border border-emerald-950 shadow-sm;
+    @apply bg-rose-900 text-amber-100 border border-rose-950 shadow-sm;
   }
 
   .explore-menu-button:hover {
-    @apply bg-emerald-800 text-amber-50;
+    @apply bg-rose-800 text-amber-50;
   }
 
   .explore-menu-button:focus-visible {
-    @apply ring-2 ring-amber-400 ring-offset-2 ring-offset-background;
+    @apply ring-2 ring-amber-300 ring-offset-2 ring-offset-background;
   }
 }
