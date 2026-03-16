@@ -31,7 +31,7 @@ export default function AceternityHeroAurora({
             <Button asChild className="bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
               <Link href="/contact#reservation">Reserve a Table</Link>
             </Button>
-            <Button asChild variant="outline" className="border-[#FEFAE0] text-[#FEFAE0] hover:bg-[#FEFAE0]/10">
+            <Button asChild className="border border-[#DDA15E] bg-[#FEFAE0] text-[#722F37] hover:bg-[#f3e7c5]">
               <Link href="/menu">Explore Menu</Link>
             </Button>
           </div>
