@@ -39,7 +39,7 @@ export default function Navbar({
               {link.label}
             </Link>
           ))}
-          <Button asChild className="bg-[#722F37] text-white hover:bg-[#5e252d]">
+          <Button asChild className="rounded-full bg-[#722F37] text-white hover:bg-[#5e252d]">
             <Link href={reserveHref}>{reserveLabel}</Link>
           </Button>
         </nav>
@@ -60,7 +60,7 @@ export default function Navbar({
               {link.label}
             </Link>
           ))}
-          <Button asChild className="mt-2 bg-[#722F37] text-white hover:bg-[#5e252d]">
+          <Button asChild className="mt-2 rounded-full bg-[#722F37] text-white hover:bg-[#5e252d]">
             <Link href={reserveHref} onClick={() => setOpen(false)}>
               {reserveLabel}
             </Link>

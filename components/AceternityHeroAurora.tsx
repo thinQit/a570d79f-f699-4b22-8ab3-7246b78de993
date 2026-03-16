@@ -28,7 +28,7 @@ export default function AceternityHeroAurora({
             <TextGenerateEffect words={subheadline} />
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild className="bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
+            <Button asChild className="rounded-full bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
               <Link href="/contact#reservation">Reserve a Table</Link>
             </Button>
             <Button asChild className="border border-[#DDA15E] bg-[#606C38] text-[#FEFAE0] hover:bg-[#4e5830]">

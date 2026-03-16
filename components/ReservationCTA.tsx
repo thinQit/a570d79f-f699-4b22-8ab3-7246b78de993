@@ -16,6 +16,7 @@ export default function ReservationCTA({
   phone = '(212) 555-0147',
 }: Partial<ReservationCTAProps>) {
   const ctaButtonClass = "bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054] focus-visible:ring-2 focus-visible:ring-[#FEFAE0] focus-visible:ring-offset-2 focus-visible:ring-offset-[#722F37]"
+  const reserveButtonClass = `${ctaButtonClass} rounded-full`
 
   return (
     <section className="bg-[#722F37] py-16 text-[#FEFAE0]">
@@ -25,7 +26,7 @@ export default function ReservationCTA({
           <p className="mt-2 text-[#FEFAE0]/85">{hoursSummary}</p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Button asChild className={ctaButtonClass}>
+          <Button asChild className={reserveButtonClass}>
             <Link href="/contact#reservation">Reserve Now</Link>
           </Button>
           <Button asChild className={ctaButtonClass}>

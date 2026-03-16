@@ -42,7 +42,7 @@ export default function Footer({
         <div>
           <h4 className="font-semibold">Reserve Your Table</h4>
           <p className="mt-3 text-sm text-[#FEFAE0]/85">Book ahead for family dinners and special nights.</p>
-          <Button asChild className="mt-4 w-full bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
+          <Button asChild className="mt-4 w-full rounded-full bg-[#DDA15E] text-[#722F37] hover:bg-[#c79054]">
             <Link href="/contact#reservation">Reserve Now</Link>
           </Button>
           <div className="mt-4 flex gap-3">
