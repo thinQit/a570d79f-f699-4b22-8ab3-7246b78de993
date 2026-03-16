@@ -14,7 +14,7 @@ export default function LocationMapEmbed({
   address = '128 Via Roma, Little Italy, NY 10013',
   hours = 'Mon–Thu 4:00 PM–10:00 PM · Fri–Sun 12:00 PM–11:00 PM',
   parkingNote = 'Street parking nearby and valet available Friday to Sunday.',
-  mapSrc = 'https://www.google.com/maps?q=Little%20Italy%20New%20York&output=embed',
+  mapSrc = 'https://www.google.com/maps?q=Palam%2C%20New%20Delhi%2C%20India&output=embed',
 }: Partial<LocationMapEmbedProps>) {
   return (
     <section className="bg-white py-20 md:py-28">
